@@ -8,6 +8,7 @@ resources:
   - http://community.pentaho.com/ctools/ccc/charts/lib/tipsy.js
   - http://community.pentaho.com/ctools/ccc/charts/lib/def.js
   - http://community.pentaho.com/ctools/ccc/charts/lib/pvc-r2.0.js
-  - http://community.pentaho.com/ctools/ccc/charts/lib/tipsy.cssnormalize_css: yes
+  - http://community.pentaho.com/ctools/ccc/charts/lib/tipsy.css
+normalize_css: yes
 lang_css: CSS
 wrap: l
