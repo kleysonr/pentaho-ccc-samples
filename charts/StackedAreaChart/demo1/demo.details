@@ -1,4 +1,13 @@
 ---
-normalize_css: yes
+authors:
+  - Kleyson Rios (krios@pentaho.com)
+resources:
+  - http://community.pentaho.com/ctools/ccc/charts/lib/jquery.tipsy.js
+  - http://community.pentaho.com/ctools/ccc/charts/lib/protovis.js
+  - http://community.pentaho.com/ctools/ccc/charts/lib/protovis-msie.js
+  - http://community.pentaho.com/ctools/ccc/charts/lib/tipsy.js
+  - http://community.pentaho.com/ctools/ccc/charts/lib/def.js
+  - http://community.pentaho.com/ctools/ccc/charts/lib/pvc-r2.0.js
+  - http://community.pentaho.com/ctools/ccc/charts/lib/tipsy.cssnormalize_css: yes
 lang_css: CSS
 wrap: l
