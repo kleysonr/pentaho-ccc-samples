@@ -1,3 +1,4 @@
 ---
 normalize_css: yes
-lang_css: SCSS
+lang_css: CSS
+wrap: l
