@@ -14,4 +14,6 @@ TODO
 Library
 -------------
 
-#### <i class="icon-file"></i> [StackedAreaChart](http://htmlpreview.github.io/?https://github.com/kleysonr/pentaho-ccc-samples/blob/master/StackedAreaChart.html)
+#### <i class="icon-file"></i> [StackedAreaChart - Demo4](http://htmlpreview.github.io/?https://github.com/kleysonr/pentaho-ccc-samples/blob/master/charts/StackedAreaChart/demo4/demo.html)
+#### <i class="icon-file"></i> [StackedAreaChart - Demo5](http://htmlpreview.github.io/?https://github.com/kleysonr/pentaho-ccc-samples/blob/master/charts/StackedAreaChart/demo5/demo.html)
+#### <i class="icon-file"></i> [BarChart - Demo1](http://htmlpreview.github.io/?https://github.com/kleysonr/pentaho-ccc-samples/blob/master/charts/BarChart/demo1/demo.html)
