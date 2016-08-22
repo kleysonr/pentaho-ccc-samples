@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>__CHART TITLE__</title>
+  <link rel="stylesheet" type="text/css" href="http://community.pentaho.com/ctools/ccc/charts/lib/tipsy.css">
+  <link rel="stylesheet" type="text/css" href="../../../css/codemirror.css">
+  <link rel="stylesheet" type="text/css" href="../../../css/ccc.css">
+</head>
+<body>
+	<!-- HTML code -->
+	
+	<div class="chartContent"> 
+		<div id="chartDiv" class="chartDiv" style="display: inline-block; position: relative;"></div>
+		<div class="chartDefs">
+			<textarea id="chartDefsTextArea" style="display:none">
+{
+	canvas: "chartDiv",
+    
+    // CHART
+    height : 400,
+    width : 800,
+    crosstabMode : true,
+
+    timeSeries: true,
+    timeSeriesFormat: "%Y-%m-%d",
+
+    // COLOR AXIS
+    colors : ['#C74A53'],
+
+    // COLOR2 AXIS
+    color2AxisColors : ['#202020'],
+
+    // PLOT2
+    plot2: true,
+    plot2DotsVisible:  false,
+    plot2Line_lineWidth : pvc.finished(1),
+    plot2Dot_fillStyle : "#FFF",
+    plot2Series: ['Estimated', 'Benchmark'],
+    plot2Line_strokeDasharray: function(scene) { 
+      return (scene.atoms.series.value == "Estimated") ? "Dash" : this.delegate() 
+    },
+
+    // CARTESIAN AXES
+    baseAxisRule_strokeStyle: '#CCCCCC',
+    axisLabel_font : 'normal 12px Arial, Verdana, sans-serif',
+    axisLabel_textStyle : '#797979',
+
+    // LEGEND PANEL           
+    legend : true,
+    legendPosition : 'top',
+    legendAlign : 'right',
+
+    // ortho axis settings
+    orthoAxisGrid:true,
+    orthoAxisTicks : false,
+    orthoAxisMinorTicks: false,
+    orthoAxisLabel_visible: false
+	
+}			
+			</textarea>
+		    <button class="tryMe btn" onclick="tryMe(this)">Update Chart</button>
+		</div>	
+	</div>
+
+	<!-- CCC Resources -->
+	<script type='text/javascript' src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/jquery.tipsy.js"></script>
+	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/protovis.js"></script>
+	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/protovis-msie.js"></script>
+	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/tipsy.js"></script>
+	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/def.js"></script>
+	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/pvc-r2.0.js"></script>
+	<script>
+		// Set chartDefinition into 'cd' variable
+		var $textArea = $('#chartDefsTextArea')[0];
+		var code = $.trim($textArea.value); 
+		var cd = (new Function('return ' + code))();	    
+  	</script>
+
+	<!-- Libs -->
+	<script type='text/javascript' src="../../../lib/ccc.js"></script>
+	<script type='text/javascript' src="../../../lib/codemirror.js"></script>
+	<script type='text/javascript' src="../../../lib/javascript-typescript.js"></script>
+	<script type='text/javascript' src="cdaData.js"></script>
+	<script type='text/javascript' src="../lib/render.js"></script>
+
+	<!-- Resource for additional files -->
+	
+</body>
+</html>

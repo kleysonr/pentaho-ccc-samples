@@ -13,10 +13,7 @@
 		<div id="chartDiv" class="chartDiv" style="display: inline-block; position: relative;"></div>
 		<div class="chartDefs">
 			<textarea id="chartDefsTextArea" style="display:none">
-var chartSelectionParam = "";
-var granularityFormatParam = "Day";
-
-var cd = {
+{
     	canvas: "chartDiv",
     
         height : 273,
@@ -218,28 +215,29 @@ var cd = {
 	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/tipsy.js"></script>
 	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/def.js"></script>
 	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/pvc-r2.0.js"></script>
+	<script>
+		var chartSelectionParam = "";
+		var granularityFormatParam = "Day";
+  	</script>
+	<script>
+		// Set chartDefinition into 'cd' variable
+		var $textArea = $('#chartDefsTextArea')[0];
+		var code = $.trim($textArea.value); 
+		var cd = (new Function('return ' + code))();	    
+  	</script>
 
 	<!-- Libs -->
 	<script type='text/javascript' src="../../../lib/ccc.js"></script>
 	<script type='text/javascript' src="../../../lib/codemirror.js"></script>
 	<script type='text/javascript' src="../../../lib/javascript-typescript.js"></script>
+	<script type='text/javascript' src="cdaData.js"></script>
+	<script type='text/javascript' src="../lib/render.js"></script>
+	
 
 	<!-- Resource for additional files -->
-	<script type='text/javascript' src="https://cdn.rawgit.com/kleysonr/pentaho-ccc-samples/master/charts/StackedAreaChart/demo2/format.js"></script>
 	<script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
-	
-	<!-- Resource for the data set - VERIFY THE PATH FOR YOUR DEMO -->
-	<script type='text/javascript' src="cdaData.js"></script>
 	<script type='text/javascript' src="categoryDetailsTooltip.js"></script>
-	<script type='text/javascript' src="chartDefinition.js"></script>
-	<script type='text/javascript' src="demo.js"></script>
+	<script type='text/javascript' src="enableDetailsTooltip.js"></script>
 	
-	<script>
-	
-
-	    
-  	</script>
-	
-  </script>
 </body>
 </html>

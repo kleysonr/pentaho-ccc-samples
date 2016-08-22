@@ -1,5 +1,3 @@
-def.setDebug(5);
-
 // For categoryDetailsTooltip extension
 var formatter = pvc.ext.categoryDetailsTooltip(),
     baseRenderer = formatter.renderer(),

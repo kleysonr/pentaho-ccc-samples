@@ -1,37 +1,8 @@
-def.setDebug(5);
-
 var chartSelectionParam = "";
 var granularityFormatParam = "Day";
 
-var formatter = pvc.ext.categoryDetailsTooltip(),
-    baseRenderer = formatter.renderer(),
-    baseFormat = formatter.format;
-
-formatter.format = function(scene) {
-    var model = baseFormat.call(formatter, scene);
-    var seriesIndex = scene.parent.childIndex();
-    if(model.details)
-        model.details = [model.details[seriesIndex]];
-    
-    return baseRenderer.call(formatter, model);
-};
-
-formatter
-    .renderer(function(model) { return model; })
-    .showTotal(false)
-    .categoryVisible(false)
-    .ignoreNulls(false)
-    .install(this.chartDefinition);
-    
-var selectCategory = function() {
-  var myParam = chartSelectionParam,
-      granularity = granularityFormatParam;
-  return moment(myParam, "YYYYMMDD")._d;
-};
-
-
-new pvc.BarChart({
-    canvas: "cccExample",
+var cd = {
+    	canvas: "cccExample",
     
         height : 273,
         animate : false,
@@ -207,7 +178,7 @@ new pvc.BarChart({
                             var chartSelection = chartSelectionParam,
                                 currCat = scene.vars.tick.value,
                                 granularity = granularityFormatParam,
-                                valueFormat = moment(currCat).format("YYYYMMDD"),
+                                valueFormat = moment(currCat).format("YYYYMMDD");
                              
                             if ( chartSelection === "" || chartSelection != valueFormat ){
                                  chartSelectionParam = valueFormat;
@@ -217,6 +188,4 @@ new pvc.BarChart({
                                 chartSelectionParam = '';
                             }
                         }]]
-})
-.setData(cdaData)
-.render();
+};

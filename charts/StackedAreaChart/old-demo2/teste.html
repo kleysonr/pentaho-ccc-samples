@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>xx</title>
+  <link rel="stylesheet" type="text/css" href="http://community.pentaho.com/ctools/ccc/charts/lib/tipsy.css">
+  <link rel="stylesheet" type="text/css" href="codemirror.css">
+</head>
+<body>
+	<!-- HTML code -->
+	
+  <div class="chartDefs">
+      <textarea id="chartDefsTextArea" cols="55" rows="15"></textarea>
+      <button class="tryMe btn" onclick="tryMe(this)">Update Chart</button>
+   </div>	
+   <div id="cccExample" />
+
+	<!-- CCC Resources -->
+	<script type='text/javascript' src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/jquery.tipsy.js"></script>
+	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/protovis.js"></script>
+	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/protovis-msie.js"></script>
+	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/tipsy.js"></script>
+	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/def.js"></script>
+	<script type='text/javascript' src="http://community.pentaho.com/ctools/ccc/charts/lib/pvc-r2.0.js"></script>
+
+	<script type='text/javascript' src="codemirror.js"></script>
+	<script type='text/javascript' src="jsonld.js"></script>
+	<script type='text/javascript' src="javascript.js"></script>
+
+
+	<!-- Resource for additional files -->
+	<script type='text/javascript' src="https://cdn.rawgit.com/kleysonr/pentaho-ccc-samples/master/charts/StackedAreaChart/demo2/format.js"></script>
+	<script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
+	
+	<!-- Resource for the data set - VERIFY THE PATH FOR YOUR DEMO -->
+	<script type='text/javascript' src="https://cdn.rawgit.com/kleysonr/pentaho-ccc-samples/master/charts/StackedAreaChart/demo2/cdaData.js"></script>
+	<script type='text/javascript' src="categoryDetailsTooltip.js"></script>
+	<script type='text/javascript' src="chartDefinition.js"></script>
+	<script type='text/javascript' src="demoX.js"></script>
+	
+	<script>
+	
+		var stringify = function(obj) {
+		  var placeholder = '____PLACEHOLDER____';
+		  var fns = [];
+		  var json = JSON.stringify(obj, function(key, value) {
+		    if (typeof value === 'function') {
+		      fns.push(value);
+		      return placeholder;
+		    }
+		    return value;
+		  }, 2);
+		  json = json.replace(new RegExp('"' + placeholder + '"', 'g'), function(_) {
+		    return fns.shift();
+		  });
+		  return json;
+		};	
+	
+	    $(function() {
+	
+	      	CodeMirror.fromTextArea(document.getElementById('chartDefsTextArea'), {
+			    theme: 'default', // the theme can be set here
+			    lineNumbers: true,
+			    lineWrapping: true,
+			    styleActiveLine: true,
+			    mode: "javascript"
+			}).setValue(stringify(cd, 'cd'));
+			
+			var a = eval('this["cd"] = ' + stringify(cd));
+			debugger;
+			
+	    });
+	    
+  </script>
+	
+  </script>
+</body>
+</html>
